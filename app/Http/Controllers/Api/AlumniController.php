@@ -32,7 +32,7 @@ class AlumniController extends Controller
     public function update(UpdateAlumniRequest $request): JsonResponse
     {
         $alumni = $this->alumniService->updateProfile(
-            Auth::id(), 
+            Auth::id(),  
             $request->validated()
         );
 
