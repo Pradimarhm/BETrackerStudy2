@@ -20,6 +20,10 @@ Route::get('/news', [NewsController::class, 'index']);
 Route::get('/news/{slug}', [NewsController::class, 'show']);
 Route::get('/jobs', [JobVacancyController::class, 'index']);
 
+Route::get('/test', function () {
+    return response()->json(['message' => 'hello from news']);
+});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +31,7 @@ Route::get('/jobs', [JobVacancyController::class, 'index']);
 |--------------------------------------------------------------------------
 */
 Route::middleware('auth:sanctum')->group(function () {
-    
+
     Route::post('/logout', [AuthController::class, 'logout']);
 
     // --- Profil Alumni ---
@@ -47,7 +51,7 @@ Route::middleware('auth:sanctum')->group(function () {
     |--------------------------------------------------------------------------
     */
     Route::middleware('role:admin')->group(function () {
-        
+
         // Kelola User (CRUD Admin)
         Route::apiResource('users', UserController::class);
 
@@ -60,6 +64,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/jobs', [JobVacancyController::class, 'store']);
         Route::post('/jobs/{id}', [JobVacancyController::class, 'update']);
         Route::delete('/jobs/{id}', [JobVacancyController::class, 'destroy']);
-        
+
     });
 });
