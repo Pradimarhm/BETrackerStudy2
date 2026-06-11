@@ -9,6 +9,8 @@ use App\Contracts\Repositories\OptionRepositoryInterface;
 use App\Contracts\Repositories\QuestionnaireRepositoryInterface;
 use App\Contracts\Repositories\QuestionRepositoryInterface;
 use App\Contracts\Repositories\UserRepositoryInterface;
+use App\Contracts\Repositories\NewsRepositoryInterface;
+
 use App\Repositories\Eloquent\EloquentAlumniRepository;
 use App\Repositories\Eloquent\EloquentAnswerRepository;
 use App\Repositories\Eloquent\EloquentJobVacancyRepository;
@@ -16,6 +18,8 @@ use App\Repositories\Eloquent\EloquentOptionRepository;
 use App\Repositories\Eloquent\EloquentQuestionnaireRepository;
 use App\Repositories\Eloquent\EloquentQuestionRepository;
 use App\Repositories\Eloquent\EloquentUserRepository;
+use App\Repositories\Eloquent\EloquentNewsRepository;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AnswerRepositoryInterface::class, EloquentAnswerRepository::class);
         $this->app->bind(OptionRepositoryInterface::class, EloquentOptionRepository::class);
         $this->app->bind(JobVacancyRepositoryInterface::class, EloquentJobVacancyRepository::class);
+        $this->app->bind(NewsRepositoryInterface::class, EloquentNewsRepository::class);
     }
 
     /**
